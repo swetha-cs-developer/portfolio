@@ -20,6 +20,7 @@
     </nav>
 
     <section id="home" class="hero">
+        <p id="api-message"></p>
         <h1 id="typing-text"></h1>
         <p>Python Developer | Web Developer | Software Developer|Fresher</p>
         <a href="#projects" class="btn">View My Projects</a>
@@ -108,6 +109,14 @@
     }
 
     typeWriter();
+
+    fetch('/api/greeting')
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data) {
+    document.getElementById("api-message").innerHTML = data.message;
+});
 
 </script>
 </body>
